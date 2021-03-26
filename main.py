@@ -37,11 +37,11 @@ def main():
     while True:
         found = False
         for scrapper in scrappers:
-            # scrapper_id = hash(scrapper)
-            # if scrapper_id not in registered_scrappers:
-            #     registered_scrappers.append(scrapper_id)
-            #     driver.execute_script(f"window.open('about:blank', '{scrapper_id}');")
-            # driver.switch_to.window(f"{scrapper_id}")
+            scrapper_id = hash(scrapper)
+            if scrapper_id not in registered_scrappers:
+                registered_scrappers.append(scrapper_id)
+                driver.execute_script(f"window.open('about:blank', '{scrapper_id}');")
+            driver.switch_to.window(f"{scrapper_id}")
             found = scrapper.search()
             if found:
                 print(
